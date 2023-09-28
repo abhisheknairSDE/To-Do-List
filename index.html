@@ -1,0 +1,26 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>To-Do List</title>
+    <link rel="stylesheet" href="index.css"/>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.js"></script>
+    <script src="index.js" type="text/javascript"></script>
+  </head>
+  <body>
+    <div class="container" ng-app="ToDoApp" ng-controller="ToDoController">
+      <div class="action-container">
+        <input type="text" ng-model="newItemText" placeholder="Add a new item"/>
+        <button class="add-item" ng-click="addItem()">ADD</button>
+      </div>
+      <div class="list">
+        <ul>
+          <li ng-repeat="item in todoList track by $index">
+            {{ item.text }}
+            <button ng-click="removeItem(item)">Remove</button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </body>
+</html>
